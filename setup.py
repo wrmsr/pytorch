@@ -238,7 +238,7 @@ if os.getenv('PYTORCH_BINARY_BUILD') and platform.system() == 'Linux':
     path = path[:-1]
     if type(path) != str:  # python 3
         path = path.decode(sys.stdout.encoding)
-    extra_link_args += [path]
+    extra_link_args += [path, '-Wl,--exclude-libs,ALL']
 
 cwd = os.path.dirname(os.path.abspath(__file__))
 lib_path = os.path.join(cwd, "torch", "lib")
